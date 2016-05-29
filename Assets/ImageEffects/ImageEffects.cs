@@ -2,7 +2,7 @@
 using System.Collections;
 
 [ExecuteInEditMode]
-public class CameraEffects : MonoBehaviour {
+public class ImageEffects : MonoBehaviour {
 
     public Material mat;
 
