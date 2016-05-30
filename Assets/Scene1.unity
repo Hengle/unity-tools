@@ -124,6 +124,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 11460468, guid: 67788c687dcdd8e4a90ac10ca49bd53a, type: 2}
+      propertyPath: fileName
+      value: Images/displacement.png
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460468, guid: 67788c687dcdd8e4a90ac10ca49bd53a, type: 2}
+      propertyPath: width
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 11460468, guid: 67788c687dcdd8e4a90ac10ca49bd53a, type: 2}
+      propertyPath: height
+      value: 256
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 67788c687dcdd8e4a90ac10ca49bd53a, type: 2}
   m_IsPrefabParent: 0
