@@ -819,7 +819,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1768588985}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dc80f025b6af0264695a0f66ed1472e4, type: 3}
   m_Name: 
@@ -833,12 +833,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1768588985}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9249d34b27263748b42272cfcf9e9ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: ff10df454c9d89644a5289ac140e4680, type: 2}
+  mat: {fileID: 2100000, guid: 1e3e330ec0aafd543aae3a3ae82b8eb0, type: 2}
 --- !u!1 &1776745514
 GameObject:
   m_ObjectHideFlags: 0
