@@ -39,10 +39,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33409af4d986b8843a21c1bd3a74765c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 128
-  height: 128
+  width: 256
+  height: 256
   perlinScale: 20
-  fileName: random.png
+  fileName: Images/displacement.png
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

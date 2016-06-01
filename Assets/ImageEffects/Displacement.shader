@@ -4,7 +4,8 @@
 	{
 		_MainTex("Screen Texture", 2D) = "white" {}
 		_DisplaceTex("Displacement Texture", 2D) = "white" {}
-		_Magnitude("Magnitude", Range(0, 0.1)) = 0.1
+		_DisplaceScale("Displacement Scale", Range(0, 0.1)) = 0.1
+		_TimeScale("Time Scale", Float) = 1
 	}
 	SubShader
 	{
@@ -15,9 +16,12 @@
 			#pragma vertex vert
 			#pragma fragment frag
 
+			#include "UnityCG.cginc"
+
 			sampler2D _MainTex;
 			sampler2D _DisplaceTex;
-			uniform float _Magnitude;
+			uniform float _DisplaceScale;
+			uniform float _TimeScale;
 
 			struct appdata
 			{
@@ -41,8 +45,10 @@
 
 			float4 frag(v2f i) : SV_Target
 			{
-				float2 disp = tex2D(_DisplaceTex, i.uv).xy;
-				disp = ((disp * 2) - 1) * _Magnitude;
+				float t = _Time.x * _TimeScale;
+
+				float2 disp = tex2D(_DisplaceTex, i.uv + t).xy;
+				disp = ((disp * 2) - 1) * _DisplaceScale;
 
 				return tex2D(_MainTex, i.uv + disp);
 			}
