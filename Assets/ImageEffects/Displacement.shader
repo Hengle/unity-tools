@@ -1,9 +1,10 @@
-﻿Shader "Custom/TintEffect"
+﻿Shader "Custom/Displacement"
 {
 	Properties
 	{
-		_MainTex("Texture", 2D) = "white" {}
-		_Color("Color", Color) = (1,1,1,1)
+		_MainTex("Screen Texture", 2D) = "white" {}
+		_DisplaceTex("Displacement Texture", 2D) = "white" {}
+		_Magnitude("Magnitude", Range(0, 0.1)) = 0.1
 	}
 	SubShader
 	{
@@ -15,7 +16,8 @@
 			#pragma fragment frag
 
 			sampler2D _MainTex;
-			uniform float4 _Color;
+			sampler2D _DisplaceTex;
+			uniform float _Magnitude;
 
 			struct appdata
 			{
@@ -39,7 +41,10 @@
 
 			float4 frag(v2f i) : SV_Target
 			{
-				return _Color * tex2D(_MainTex, i.uv);
+				float2 disp = tex2D(_DisplaceTex, i.uv).xy;
+				disp = ((disp * 2) - 1) * _Magnitude;
+
+				return tex2D(_MainTex, i.uv + disp);
 			}
 
 			ENDCG
