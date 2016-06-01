@@ -14,9 +14,6 @@
 			#pragma vertex vert
 			#pragma fragment frag
 
-			sampler2D _MainTex;
-			uniform float4 _Color;
-
 			struct appdata
 			{
 				float4 vertex : POSITION;
@@ -36,6 +33,9 @@
 				o.uv = v.uv;
 				return o;
 			}
+
+			sampler2D _MainTex;
+			uniform float4 _Color;
 
 			float4 frag(v2f i) : SV_Target
 			{

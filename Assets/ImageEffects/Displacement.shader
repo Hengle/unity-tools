@@ -18,11 +18,6 @@
 
 			#include "UnityCG.cginc"
 
-			sampler2D _MainTex;
-			sampler2D _DisplaceTex;
-			uniform float _DisplaceScale;
-			uniform float _TimeScale;
-
 			struct appdata
 			{
 				float4 vertex : POSITION;
@@ -42,6 +37,11 @@
 				o.uv = v.uv;
 				return o;
 			}
+
+			sampler2D _MainTex;
+			sampler2D _DisplaceTex;
+			uniform float _DisplaceScale;
+			uniform float _TimeScale;
 
 			float4 frag(v2f i) : SV_Target
 			{

@@ -13,8 +13,6 @@
 			#pragma vertex vert
 			#pragma fragment frag
 
-			uniform float4 _Color;
-
 			struct appdata
 			{
 				float4 vertex : POSITION;
@@ -31,6 +29,8 @@
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
 				return o;
 			}
+
+			uniform float4 _Color;
 
 			float4 frag(v2f i) : SV_Target
 			{
