@@ -6,11 +6,11 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Transition
-  m_Shader: {fileID: 4800000, guid: eb4713dc77b4abe49a593715541f611b, type: 3}
+  m_Name: TransparentTransition
+  m_Shader: {fileID: 4800000, guid: 569097de21d324a4cb6d504c5a820dc7, type: 3}
   m_ShaderKeywords: _DISPLACE_ON
   m_LightmapFlags: 5
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -19,7 +19,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: 673592acf98067b44921db363ea4b724, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -137,7 +137,7 @@ Material:
       data:
         first:
           name: _t
-        second: 0.2
+        second: 0.25
       data:
         first:
           name: _Displace
@@ -150,4 +150,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: 0, g: 0, b: 0, a: 0}
+        second: {r: 1, g: 1, b: 1, a: 0}

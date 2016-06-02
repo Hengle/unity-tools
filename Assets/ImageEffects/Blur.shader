@@ -2,7 +2,7 @@
 {
 	Properties
 	{
-		_MainTex("Screen Texture", 2D) = "white" {}
+		_MainTex("Image Texture", 2D) = "white" {}
 	}
 	SubShader
 	{

@@ -2,7 +2,7 @@
 {
 	Properties
 	{
-		_MainTex("Screen Texture", 2D) = "white" {}
+		_MainTex("Image Texture", 2D) = "white" {}
 		_DisplaceTex("Displacement Texture", 2D) = "white" {}
 		_DisplaceScale("Displacement Scale", Range(0, 0.1)) = 0.1
 		_TimeScale("Time Scale", Float) = 1
