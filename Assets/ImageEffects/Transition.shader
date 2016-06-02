@@ -2,7 +2,7 @@
 {
 	Properties
 	{
-		_MainTex("Screen Texture", 2D) = "white" {}
+		_MainTex("Image Texture", 2D) = "white" {}
 		_TransitionTex("Transition Texture", 2D) = "white" {}
 		_Color("Color", Color) = (1,1,1,1)
 		[MaterialToggle] _Displace("Displace", Float) = 0
