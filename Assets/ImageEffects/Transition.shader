@@ -3,6 +3,7 @@
 	Properties
 	{
 		_MainTex("Screen Texture", 2D) = "white" {}
+		_TransitionTex("Transition Texture", 2D) = "white" {}
 		_Color("Color", Color) = (1,1,1,1)
 		_t("t", Range(0, 1)) = 0
 	}
@@ -36,12 +37,17 @@
 			}
 
 			sampler2D _MainTex;
+			sampler2D _TransitionTex;
 			uniform float4 _Color;
 			uniform float _t;
 
 			float4 frag(v2f i) : SV_Target
 			{
-				if (i.uv.x <= _t)
+				float4 color = tex2D(_TransitionTex, i.uv);
+
+				
+				
+				if (color.r <= _t)
 				{
 					return _Color;
 				}
