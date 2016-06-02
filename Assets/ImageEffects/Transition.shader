@@ -5,6 +5,7 @@
 		_MainTex("Screen Texture", 2D) = "white" {}
 		_TransitionTex("Transition Texture", 2D) = "white" {}
 		_Color("Color", Color) = (1,1,1,1)
+		[MaterialToggle] _Displace("Displace", Float) = 0
 		_t("t", Range(0, 1)) = 0
 	}
 	SubShader
@@ -52,19 +53,25 @@
 			sampler2D _MainTex;
 			sampler2D _TransitionTex;
 			uniform float4 _Color;
+			uniform float _Displace;
 			uniform float _t;
 
 			float4 frag(v2f i) : SV_Target
 			{
 				float4 color = tex2D(_TransitionTex, i.uvTransition);
 
-				if (color.r <= _t)
+				if (color.b <= _t)
 				{
 					return _Color;
 				}
 				else
 				{
-					return tex2D(_MainTex, i.uvScreen);
+					float2 dir = float2(0, 0);
+					if (_Displace) {
+						dir = normalize(float2((color.r - 0.5) * 2, (color.g - 0.5) * 2));
+					}
+
+					return tex2D(_MainTex, i.uvScreen + dir * _t);
 				}
 			}
 
