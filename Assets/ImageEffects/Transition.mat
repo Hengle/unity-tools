@@ -82,7 +82,7 @@ Material:
         first:
           name: _TransitionTex
         second:
-          m_Texture: {fileID: 2800000, guid: c2aeb93b64c284f45aa613390b6f1076, type: 3}
+          m_Texture: {fileID: 2800000, guid: b3c8258345ff2a24f89848e1c7f170e6, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -137,7 +137,7 @@ Material:
       data:
         first:
           name: _t
-        second: 0.19
+        second: 0
     m_Colors:
       data:
         first:

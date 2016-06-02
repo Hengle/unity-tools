@@ -25,14 +25,27 @@
 			struct v2f
 			{
 				float4 pos : SV_POSITION;
-				float2 uv : TEXCOORD0;
+				float2 uvScreen : TEXCOORD0;
+				float2 uvTransition : TEXCOORD1;
 			};
+
+			float2 _MainTex_TexelSize;
 
 			v2f vert(appdata v)
 			{
 				v2f o;
 				o.pos = mul(UNITY_MATRIX_MVP, v.vertex);
-				o.uv = v.uv;
+				o.uvScreen = v.uv;
+
+				o.uvTransition = v.uv;
+
+				#if UNITY_UV_STARTS_AT_TOP
+				if (_MainTex_TexelSize.y < 0)
+				{
+					o.uvTransition.y = 1 - o.uvTransition.y;
+				}
+				#endif
+
 				return o;
 			}
 
@@ -43,17 +56,15 @@
 
 			float4 frag(v2f i) : SV_Target
 			{
-				float4 color = tex2D(_TransitionTex, i.uv);
+				float4 color = tex2D(_TransitionTex, i.uvTransition);
 
-				
-				
 				if (color.r <= _t)
 				{
 					return _Color;
 				}
 				else
 				{
-					return tex2D(_MainTex, i.uv);
+					return tex2D(_MainTex, i.uvScreen);
 				}
 			}
 
