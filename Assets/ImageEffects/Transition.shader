@@ -68,7 +68,7 @@
 				{
 					float2 dir = float2(0, 0);
 					if (_Displace) {
-						dir = normalize(float2((color.r - 0.5) * 2, (color.g - 0.5) * 2));
+						dir = float2((color.r - 0.5) * 2, (color.g - 0.5) * 2);
 					}
 
 					return tex2D(_MainTex, i.uvScreen + dir * _t);
