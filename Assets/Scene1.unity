@@ -287,7 +287,7 @@ GameObject:
   - 64: {fileID: 405909517}
   - 23: {fileID: 405909516}
   m_Layer: 0
-  m_Name: TransparentTransition
+  m_Name: TransparentImageTransition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
