@@ -11,10 +11,10 @@ ExportedObj/
 obj/
 *.svd
 *.userprefs
-/*.csproj
+*.csproj
 *.pidb
 *.suo
-/*.sln
+*.sln
 *.user
 *.unityproj
 *.booproj
@@ -33,4 +33,4 @@ Thumbs.db
 # ============== #
 # My Own Ignores #
 # ============== #
-/Build/
+/*/Build/
