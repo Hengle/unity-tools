@@ -5,7 +5,8 @@ Each "sample" can be called an octave.
 
 A common source for the sample data is from perlin noise.
 
-Lacunarity controls the change (usually increase) in frequency of the octaves. The higher the frequency the more detail a sample will have (I assume because frequency represents the frequency of details).  
+Lacunarity controls the change (usually increase) in frequency of the octaves. The higher the frequency the more detail a sample will have (I assume because frequency represents the frequency of details).
+
 Persistance controls the change (usually decrease) in amplitude of the octaves. The lower the amplitude the less affect it will have on the final combined sample.
 
 Lacunarity > 1  
