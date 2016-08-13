@@ -1,3 +1,10 @@
+## Some known level generation techniques
+
+* Cyclic Dungeon Generation
+* Perlin Terrian
+* Room/Hallway Dungeon Generation
+* Cellular Automata / Marching Squares
+
 ## Basic 3D Terrain Generation
 
 One way to create random terrain is to combine multiple height samples into one final height. Each sample represents a different level of detail (for example Hills, Boulders, Pebbles).
@@ -28,3 +35,6 @@ Octave 1
 Octave 2  
 	frequency = lacunarity ^ 2  
 	amplitude = persistance ^ 2  
+
+
+An important note to remember about Perlin Noise is that it will return the same values at whole number coordinates.
