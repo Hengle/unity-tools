@@ -16,8 +16,6 @@ public static class Noise
 
     public static float[,] generateMap(int width, int height, int seed)
     {
-        Debug.Log(seed);
-
         float[,] map = new float[width, height];
         
         System.Random rand = new System.Random(seed);

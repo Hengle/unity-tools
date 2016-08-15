@@ -3,15 +3,14 @@ using System.Collections;
 
 public class Terrain2D : MonoBehaviour
 {
-    private Renderer r;
+    public int width;
+    public int height;
 
-    // Use this for initialization
-    void Start()
+    public bool autoUpdate;
+
+    public void generate()
     {
-        r = GetComponent<Renderer>();
-
-        int width = 100;
-        int height = 100;
+        Renderer r = GetComponent<Renderer>();
 
         float[,] heights = Noise.generateMap(width, height);
 
@@ -32,9 +31,16 @@ public class Terrain2D : MonoBehaviour
         transform.localScale = new Vector3(((float)width / height), 1f, 1f);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnValidate()
     {
+        if(width < 1)
+        {
+            width = 1;
+        }
 
+        if(height < 1)
+        {
+            height = 1;
+        }
     }
 }
