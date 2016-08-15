@@ -6,13 +6,28 @@ public class Terrain2D : MonoBehaviour
     public int width;
     public int height;
 
+    public bool randomSeed;
+    public int seed;
+
     public bool autoUpdate;
+
+    void Start()
+    {
+        generate();
+    }
 
     public void generate()
     {
-        Renderer r = GetComponent<Renderer>();
+        float[,] heights;
 
-        float[,] heights = Noise.generateMap(width, height);
+        if(randomSeed)
+        {
+            heights = Noise.generateMap(width, height, out seed);
+        }
+        else
+        {
+            heights = Noise.generateMap(width, height, seed);
+        }
 
         Color[] colors = new Color[width * height];
         for(int j = 0; j < height; j++)
@@ -27,7 +42,7 @@ public class Terrain2D : MonoBehaviour
         texture.SetPixels(colors);
         texture.Apply();
 
-        r.sharedMaterial.mainTexture = texture;
+        GetComponent<Renderer>().sharedMaterial.mainTexture = texture;
         transform.localScale = new Vector3(((float)width / height), 1f, 1f);
     }
 
