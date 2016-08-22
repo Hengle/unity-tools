@@ -228,7 +228,7 @@ Transform:
   m_GameObject: {fileID: 1485253430}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
@@ -244,10 +244,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aedc939f5a396142bde54f6a499b1f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 50
+  width: 100
   height: 100
-  randomSeed: 1
-  seed: 403074468
+  inverseScale: 20
+  randomSeed: 0
+  seed: 1020323031
   autoUpdate: 1
 --- !u!1 &2053605782
 GameObject:

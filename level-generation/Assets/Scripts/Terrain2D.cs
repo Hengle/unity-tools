@@ -5,6 +5,7 @@ public class Terrain2D : MonoBehaviour
 {
     public int width;
     public int height;
+    public float inverseScale;
 
     public bool randomSeed;
     public int seed;
@@ -22,11 +23,11 @@ public class Terrain2D : MonoBehaviour
 
         if(randomSeed)
         {
-            heights = Noise.generateMap(width, height, out seed);
+            heights = Noise.generateMap(width, height, inverseScale, out seed);
         }
         else
         {
-            heights = Noise.generateMap(width, height, seed);
+            heights = Noise.generateMap(width, height, inverseScale, seed);
         }
 
         Color[] colors = new Color[width * height];
@@ -56,6 +57,11 @@ public class Terrain2D : MonoBehaviour
         if(height < 1)
         {
             height = 1;
+        }
+
+        if(inverseScale <= 0)
+        {
+            inverseScale = 0.0001f;
         }
     }
 }
