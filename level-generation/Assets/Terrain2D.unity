@@ -247,8 +247,11 @@ MonoBehaviour:
   width: 100
   height: 100
   inverseScale: 20
+  octaves: 3
+  lacunarity: 2
+  persistence: 0.5
   randomSeed: 0
-  seed: 1020323031
+  seed: 1023050343
   autoUpdate: 1
 --- !u!1 &2053605782
 GameObject:

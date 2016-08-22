@@ -14,7 +14,7 @@ A common source for the sample data is from perlin noise.
 
 Lacunarity controls the change (usually increase) in frequency of the octaves. The higher the frequency the more detail a sample will have (I assume because frequency represents the frequency of details).
 
-Persistance controls the change (usually decrease) in amplitude of the octaves. The lower the amplitude the less affect it will have on the final combined sample.
+Persistence controls the change (usually decrease) in amplitude of the octaves. The lower the amplitude the less affect it will have on the final combined sample.
 
 Lacunarity > 1  
 1 > Persistence > 0  
@@ -26,15 +26,15 @@ Persistence = 1/2
 
 Octave 0  
 	frequency = lacunarity ^ 0  
-	amplitude = persistance ^ 0  
+	amplitude = persistence ^ 0  
 
 Octave 1  
 	frequency = lacunarity ^ 1  
-	amplitude = persistance ^ 1  
+	amplitude = persistence ^ 1  
 
 Octave 2  
 	frequency = lacunarity ^ 2  
-	amplitude = persistance ^ 2  
+	amplitude = persistence ^ 2  
 
 
 An important note to remember about Perlin Noise is that it will return the same values at whole number coordinates.
