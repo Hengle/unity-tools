@@ -6,6 +6,7 @@ public class Terrain2D : MonoBehaviour
     public int width;
     public int height;
     public float inverseScale;
+    public Vector2 offset;
     public int octaves;
     public float lacunarity;
     [Range(0, 1)]
@@ -27,11 +28,11 @@ public class Terrain2D : MonoBehaviour
 
         if(randomSeed)
         {
-            heights = Noise.generateMap(width, height, inverseScale, octaves, lacunarity, persistence, out seed);
+            heights = Noise.generateMap(width, height, inverseScale, offset, octaves, lacunarity, persistence, out seed);
         }
         else
         {
-            heights = Noise.generateMap(width, height, inverseScale, octaves, lacunarity, persistence, seed);
+            heights = Noise.generateMap(width, height, inverseScale, offset, octaves, lacunarity, persistence, seed);
         }
 
         Color[] colors = new Color[width * height];

@@ -3,18 +3,18 @@ using UnityEngine;
 
 public static class Noise
 {
-    public static float[,] generateMap(int width, int height, float inverseScale, int octaves = 3, float lacunarity = 2, float persistence = 0.5f)
+    public static float[,] generateMap(int width, int height, float inverseScale, Vector2 offset = default(Vector2), int octaves = 3, float lacunarity = 2, float persistence = 0.5f)
     {
-        return generateMap(width, height, inverseScale, Environment.TickCount);
+        return generateMap(width, height, inverseScale, offset, Environment.TickCount);
     }
 
-    public static float[,] generateMap(int width, int height, float inverseScale, int octaves, float lacunarity, float persistence, out int seed)
+    public static float[,] generateMap(int width, int height, float inverseScale, Vector2 offset, int octaves, float lacunarity, float persistence, out int seed)
     {
         seed = Environment.TickCount;
-        return generateMap(width, height, inverseScale, octaves, lacunarity, persistence, seed);
+        return generateMap(width, height, inverseScale, offset, octaves, lacunarity, persistence, seed);
     }
 
-    public static float[,] generateMap(int width, int height, float inverseScale, int octaves, float lacunarity, float persistence, int seed)
+    public static float[,] generateMap(int width, int height, float inverseScale, Vector2 offset, int octaves, float lacunarity, float persistence, int seed)
     {
         float[,] map = new float[width, height];
         
@@ -38,8 +38,8 @@ public static class Noise
 
                 for(int o = 0; o < octaves; o++)
                 {
-                    float x = (i - (width / 2f)) / inverseScale * frequency + centers[0].x;
-                    float y = (j - (height / 2f)) / inverseScale * frequency + centers[0].y;
+                    float x = (i - (width / 2f)) / inverseScale * frequency + centers[o].x + offset.x * frequency;
+                    float y = (j - (height / 2f)) / inverseScale * frequency + centers[o].y + offset.y * frequency;
 
                     value += (Mathf.PerlinNoise(x, y) * 2 - 1) * amplitude;
 
