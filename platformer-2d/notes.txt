@@ -1,0 +1,66 @@
+One Game A Week 01
+
+One Game of Month June 2017
+320x200 pixels and only four colors: black, white, cyan and magenta
+
+https://itch.io/jam/cga-jam
+
+- History Repeats
+- Always faster
+- Gravity
+- WildWest / WestWorld
+  - robots
+  - guns
+  - ropes
+  - horses
+  - trains!!!
+  - booze
+  - prostitutes
+  - saloons
+  - pianos
+  - canyons
+  - Indians
+  - army men
+  - bandits
+  - sheriffs
+  - hangings
+  - farms
+  - tumble weeds
+  - shoot outs
+
+puzzle
+rpg
+rogue like MUD
+rts
+arcade
+racing
+
+
+Mario Kart Lite Racing Game / Maybe more of a smash bro like gameplay
+
+Finish Line is first to destroy/stop the train which is running around
+
+Power ups to attack the trains and the other npcs
+
+
+Side scrolling platformer map?
+  Trains is jumping around running amuck on the map.
+  Have smash bro kind of map
+  have dynamic map parts that change to hurt or help if you are on it
+
+  Mario Kart Mechanics (3 health points)
+    banana - stationary trap that stops you when you touch it
+    green shell - goes straight missile causes hit enemy to spin out if hit. Will bounce off walls
+    red shell - homing missile. will not bounce off walls
+    feather - lets you high jump
+    mushroom - speed boost, can also slam into opponents
+    star - become invincible, small speed boost, touching others will cause them to spin out
+    ghost - steals an opponents item
+    coin - increases coin count which increases overall top speed
+    trick items - looks like a good item but actually a trap
+
+    boost
+    invincible
+
+    homing missile
+    banana
