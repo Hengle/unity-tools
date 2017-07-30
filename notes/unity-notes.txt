@@ -2,7 +2,7 @@ Static checkbox on game object (different than static colliders) will do the fol
     tells unity the game object wont move and can then be light mapped
     preparing static geometry for automatic batching (pro)
     calculating Occlusion Culling (pro)
-    
+
 
 GUI Text has 0,0 at the bottom left rather than the top right of the screen
 
@@ -56,7 +56,7 @@ To make a rigidbody use interpolation correctly I must use velocity and angularV
 When are colliders "touching":
 In 2D Physics it seems like two colliders are considered to be touching each other when they are less than Physics2D.minPenetrationForPenalty distance apart. But this seems to happen only 99% of the time. I have actually seen two touching colliders be slighting more than Physics2D.minPenetrationForPenalty apart, so I don't really understand the specifics of how it works.
 
-Interestingly enough 2D circleCasts can return results that end up providing a location where the circle would be overlapping with the hit collider (I've seen a circle cast result of about 50% of min penetration overlap), but when you try to actually set the circle collider to the location the 2D physics always seems to force the circle collider back outside of the hit collider with no overlap. So at least the circleCasts seem to allow some overlap when deciding when a circle is touching another collider. 
+Interestingly enough 2D circleCasts can return results that end up providing a location where the circle would be overlapping with the hit collider (I've seen a circle cast result of about 50% of min penetration overlap), but when you try to actually set the circle collider to the location the 2D physics always seems to force the circle collider back outside of the hit collider with no overlap. So at least the circleCasts seem to allow some overlap when deciding when a circle is touching another collider.
 
 Also it is important to note that when I spoke about overlap in the last paragraph I mean actually overlapping shapes. It seems Physics2D.OverlapCircle() will consider a shape to be overlaping even if they are not overlapping and there is <= Physics2D.minPenetrationForPenalty distance between them. At least that is what my tests seem to show its hard to be certain of what is happenning without seeing what is under Unity's hood.
 
@@ -71,7 +71,7 @@ I think in Unity's 3D Physics colliders are actually allowed to overlap by minPe
 
 
 Animation Note:
-The sample number in the animation view sets how many ticks on the animation timeline there will be for every second. So a sample of 5 will put 5 ticks on the timeline per second making each tick worth 200ms of time. Similarly a sample of 60 will have 60 ticks on the timeline per second (which is useful for 60 fps animations). 
+The sample number in the animation view sets how many ticks on the animation timeline there will be for every second. So a sample of 5 will put 5 ticks on the timeline per second making each tick worth 200ms of time. Similarly a sample of 60 will have 60 ticks on the timeline per second (which is useful for 60 fps animations).
 
 You don't need to end an animation on a whole second. For instance the moving animation for my mouse has 4 frame each frame should last 200ms. So I set the sample to 5 so each tick is worth 200ms, but I only put 4 frames on the timeline. So the animation ends (or repeats) after only 4 ticks or 800ms which is fine!
 
@@ -113,7 +113,7 @@ https://www.assetstore.unity3d.com/en/#!/content/11919
 A Gentle Intro to Shaders in Unity3D
 http://www.alanzucconi.com/2015/06/10/a-gentle-introduction-to-shaders-in-unity3d/
 
-Fixing the gaps on unity 2D sprites 
+Fixing the gaps on unity 2D sprites
 http://nielson.io/2015/10/fixing-gaps-between-sprites-better-2d-in-unity-part-2/
 
 Standard Assets built into Unity
@@ -124,6 +124,12 @@ Utility (only need the Open Sans font)
 
 
 http://docs.unity3d.com/Manual/ExecutionOrder.html
-	Useful but unfortunately not accurate. 
+	Useful but unfortunately not accurate.
 		yield WaitForFixedUpdate() happens after the internal physics update :/ (rather than before as it says)
 		I noticed that FixedUpdate() from one script could fire before the Start() of another script on the same GameObject (but the same thing was not happening with Update()). I should mention that the objects were created with Instantiate().
+
+
+
+Unity UI
+
+https://docs.unity3d.com/Manual/HOWTO-UIWorldSpace.html
