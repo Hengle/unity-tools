@@ -1,0 +1,11 @@
+Project Settings > Editor
+  Visible Meta Files
+  Force Text
+
+Project Settings > Quality
+  Anti Aliasing 4x Multi Sampling
+  Shadow Projection Close Fit
+
+Window > Lighting > Settings > Scene Tab (maybe unnecessary?)
+  Ambient Source Color
+  Ambient Color B2B2B2
