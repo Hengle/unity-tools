@@ -6,6 +6,9 @@ Project Settings > Quality
   Anti Aliasing 4x Multi Sampling
   Shadow Projection Close Fit
 
-Window > Lighting > Settings > Scene Tab (maybe unnecessary?)
+Window > Lighting > Settings > Scene Tab (unnecessary if using a scene from the starter)
   Ambient Source Color
   Ambient Color B2B2B2
+
+Things to try:
+Edit > Project Settings > Player > Other Settings > Color Space > Linear
