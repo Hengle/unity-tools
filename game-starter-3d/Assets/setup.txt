@@ -11,4 +11,28 @@ Window > Lighting > Settings > Scene Tab (unnecessary if using a scene from the 
   Ambient Color B2B2B2
 
 Things to try:
-Edit > Project Settings > Player > Other Settings > Color Space > Linear
+  Edit > Project Settings > Player > Other Settings > Color Space > Linear
+
+  Project Settings > Quality
+    Anti Aliasing Disabled (use post processing instead)
+    
+  Camera Component
+    Allow HDR turned on
+    Allow MSAA turned off
+    
+  Post Procesing Profile
+    Enable Color Gradiant
+      Tone Mapper Filmic
+      Post Exposure 0.6
+    Enable Eye Adaption
+      Go to light settings and change Ambient Light Intensity to 2
+      Change your main Directional Light Intensity to 7
+    Enable Motion Blur
+    Enable Vignette
+      Reduce intensity to 0.37
+    Enable Ambient Occulusion
+    Enable Bloom
+      Radius 2.5
+      Intensity 0.1
+    Enable Antialiasing 
+      Method > Temporal Anti-aliasing
