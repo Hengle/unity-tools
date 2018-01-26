@@ -165,6 +165,8 @@ public class MovementAIRigidbody : MonoBehaviour
         /* If the character can't fly then find the current the ground normal */
         if (is3D && !canFly)
         {
+            bool shouldFollowGround = !rb3D.useGravity || rb3D.velocity.y <= 0;
+
             /* Reset to default values */
             wallNormal = Vector3.zero;
             movementNormal = Vector3.up;
@@ -176,7 +178,7 @@ public class MovementAIRigidbody : MonoBehaviour
             Start the ray with a small offset of 0.1f from inside the character. The
             transform.position of the characer is assumed to be at the base of the character.
              */
-            if (sphereCast(Vector3.down, out downHit, groundFollowDistance, groundCheckMask.value))
+            if (shouldFollowGround && sphereCast(Vector3.down, out downHit, groundFollowDistance, groundCheckMask.value))
             {
                 if (isWall(downHit.normal))
                 {
@@ -189,7 +191,7 @@ public class MovementAIRigidbody : MonoBehaviour
                     RaycastHit downWallHit;
 
                     /* If we found ground that we would have hit if not for the wall then follow it */
-                    if (remainingDist > 0 && sphereCast(downSlope, out downWallHit, remainingDist, groundCheckMask.value, downHit.normal) && !isWall(downWallHit.normal))
+                    if (remainingDist > 0 && sphereCast(downSlope, out downWallHit, remainingDist, groundCheckMask.value) && !isWall(downWallHit.normal))
                     {
                         Vector3 newPos = rb3D.position + (downSlope * downWallHit.distance);
                         foundGround(downWallHit.normal, newPos);
@@ -317,6 +319,10 @@ public class MovementAIRigidbody : MonoBehaviour
             if (sphereCast(direction, out hitInfo, dist, groundCheckMask.value, movementNormal) && isWall(hitInfo.normal)
                 && isMovingInto(direction, hitInfo.normal))
             {
+                /* Move up to the on coming wall */
+                float moveUpDist = Mathf.Max(0, hitInfo.distance);
+                rb3D.MovePosition(rb3D.position + (direction * moveUpDist));
+
                 Vector3 projectedVel = limitVelocityOnWall(rb3D.velocity, hitInfo.normal);
                 Vector3 projectedStartVel = limitVelocityOnWall(startVelocity, hitInfo.normal);
 
@@ -337,10 +343,6 @@ public class MovementAIRigidbody : MonoBehaviour
                 /* Else move along the wall */
                 else
                 {
-                    /* Move up to the on coming wall */
-                    float moveUpDist = Mathf.Max(0, hitInfo.distance);
-                    rb3D.MovePosition(rb3D.position + (direction * moveUpDist));
-
                     rb3D.velocity = projectedVel;
 
                     /* Make this wall the previous wall */
@@ -413,6 +415,17 @@ public class MovementAIRigidbody : MonoBehaviour
         }
 
         return velocity;
+    }
+
+    public void jump(float speed)
+    {
+        if(rb3D.useGravity == false)
+        {
+            rb3D.useGravity = true;
+            Vector3 vel = rb3D.velocity;
+            vel.y = speed;
+            rb3D.velocity = vel;
+        }
     }
 
     /// <summary>
@@ -593,10 +606,10 @@ public class MovementAIRigidbody : MonoBehaviour
         {
             if(is3D)
             {
-                rb3D.rotation = value;
+                rb3D.MoveRotation(value);
             } else
             {
-                rb2D.rotation = value.eulerAngles.z;
+                rb2D.MoveRotation(value.eulerAngles.z);
             }
         }
     }
