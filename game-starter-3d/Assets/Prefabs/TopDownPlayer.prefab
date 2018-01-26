@@ -39,7 +39,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4402523264931904}
   - component: {fileID: 20109343955268768}
-  - component: {fileID: 92380550641624856}
   - component: {fileID: 124675224109053104}
   - component: {fileID: 81496552698711870}
   m_Layer: 0
@@ -138,11 +137,11 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
-  m_StereoMirrorMode: 0
 --- !u!23 &23629995546597866
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -152,6 +151,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -167,6 +167,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -199,13 +200,6 @@ Rigidbody:
   m_CollisionDetection: 0
 --- !u!81 &81496552698711870
 AudioListener:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1819656503631558}
-  m_Enabled: 1
---- !u!92 &92380550641624856
-Behaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}

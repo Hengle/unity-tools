@@ -10,7 +10,11 @@ Window > Lighting > Settings > Scene Tab (unnecessary if using a scene from the 
   Ambient Source Color
   Ambient Color B2B2B2
 
+Post Processing Package
+https://assetstore.unity.com/packages/essentials/post-processing-stack-83912
+
 Things to try:
+
   Edit > Project Settings > Player > Other Settings > Color Space > Linear
 
   Project Settings > Quality
