@@ -133,3 +133,13 @@ http://docs.unity3d.com/Manual/ExecutionOrder.html
 Unity UI
 
 https://docs.unity3d.com/Manual/HOWTO-UIWorldSpace.html
+
+
+C# Naming Conventions
+  fields - camelCase
+  local variables - camelCase
+  parameters - camelCase
+
+  properties - PascalCase
+  method - PascalCase
+  classes - PascalCase
