@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TopDownPlayer : MonoBehaviour {
     public float speed = 21f;
@@ -22,10 +20,10 @@ public class TopDownPlayer : MonoBehaviour {
 	void Update () {
         horAxis = Input.GetAxisRaw("Horizontal");
         vertAxis = Input.GetAxisRaw("Vertical");
-        rotateChar();
+        RotateChar();
     }
 
-    private void rotateChar()
+    private void RotateChar()
     {
         if (horAxis != 0 || vertAxis != 0)
         {
@@ -38,11 +36,11 @@ public class TopDownPlayer : MonoBehaviour {
 
     void FixedUpdate()
     {
-        rotateChar();
-        moveChar();
+        RotateChar();
+        MoveChar();
     }
 
-    private void moveChar()
+    private void MoveChar()
     {
         Vector3 vel = (transform.right * horAxis) + (transform.forward * vertAxis);
         vel = vel.normalized * speed;
