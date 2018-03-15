@@ -2,60 +2,60 @@
 
 public class GameStateManager : MonoBehaviour
 {
-    private GameState active;
+    private GameState _active;
 
-    public GameState Active
+    public GameState active
     {
         get
         {
-            return active;
+            return _active;
         }
 
         set
         {
-            if (active != null)
+            if (_active != null)
             {
-                active.StateEnd();
+                _active.StateEnd();
             }
 
-            active = value;
+            _active = value;
 
-            if (active != null)
+            if (_active != null)
             {
-                active.StateStart();
+                _active.StateStart();
             }
         }
     }
 
-    private static GameStateManager instance = null;
+    private static GameStateManager _instance = null;
 
-    public static GameStateManager Instance
+    public static GameStateManager instance
     {
-        get { return instance; }
+        get { return _instance; }
     }
 
     void Awake()
     {
-        if (instance != null && instance != this)
+        if (_instance != null && _instance != this)
         {
             Destroy(this.gameObject);
             return;
         }
         else
         {
-            instance = this;
+            _instance = this;
         }
     }
 
     void Update()
     {
-        if (Active != null)
+        if (active != null)
         {
-            Active.StateUpdate();
+            active.StateUpdate();
         }
         else if (Input.GetMouseButtonDown(0))
         {
-            Active = GetStateAtMouse();
+            active = GetStateAtMouse();
         }
     }
 
