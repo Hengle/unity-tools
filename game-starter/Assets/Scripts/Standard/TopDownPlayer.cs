@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityMovementAI;
 
 public class TopDownPlayer : MonoBehaviour {
     public float speed = 21f;
