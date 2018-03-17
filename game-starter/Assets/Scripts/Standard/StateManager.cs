@@ -1,10 +1,10 @@
 ﻿using UnityEngine;
 
-public class GameStateManager : MonoBehaviour
+public class StateManager : MonoBehaviour
 {
-    private GameState _active;
+    private State _active;
 
-    public GameState active
+    public State active
     {
         get
         {
@@ -27,9 +27,9 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
-    private static GameStateManager _instance = null;
+    private static StateManager _instance = null;
 
-    public static GameStateManager instance
+    public static StateManager instance
     {
         get { return _instance; }
     }
@@ -59,16 +59,16 @@ public class GameStateManager : MonoBehaviour
         }
     }
 
-    public static GameState GetStateAtMouse()
+    public static State GetStateAtMouse()
     {
-        GameState target = null;
+        State target = null;
 
         Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D col = Physics2D.OverlapPoint(worldPoint);
 
         if (col != null)
         {
-            target = col.GetComponent<GameState>();
+            target = col.GetComponent<State>();
         }
 
         return target;

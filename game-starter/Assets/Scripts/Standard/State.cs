@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class GameState : MonoBehaviour
+public class State : MonoBehaviour
 {
     public virtual void StateStart() { }
     public virtual void StateUpdate() { }
