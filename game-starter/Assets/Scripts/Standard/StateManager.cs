@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class StateManager : MonoBehaviour
+public class StateManager : Manager<StateManager>
 {
     private State _active;
 
@@ -24,26 +24,6 @@ public class StateManager : MonoBehaviour
             {
                 _active.StateStart();
             }
-        }
-    }
-
-    private static StateManager _instance = null;
-
-    public static StateManager instance
-    {
-        get { return _instance; }
-    }
-
-    void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-            return;
-        }
-        else
-        {
-            _instance = this;
         }
     }
 
