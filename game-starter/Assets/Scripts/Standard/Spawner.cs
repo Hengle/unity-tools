@@ -9,12 +9,12 @@ public class Spawner : MonoBehaviour
 
     private float nextSpawn;
 
-    void Start()
+    public virtual void Start()
     {
         nextSpawn = Time.time + spawnRate;
     }
 
-    void Update()
+    public virtual void Update()
     {
         if (nextSpawn < Time.time)
         {
@@ -26,8 +26,13 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public void Spawn()
+    public virtual void Spawn()
     {
-        Instantiate(prefab, prefab.position + transform.position, Quaternion.identity);
+        CreatePrefab();
+    }
+
+    public Transform CreatePrefab()
+    {
+        return Instantiate(prefab, prefab.position + transform.position, Quaternion.identity);
     }
 }
