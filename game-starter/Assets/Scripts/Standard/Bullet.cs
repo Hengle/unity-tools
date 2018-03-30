@@ -2,6 +2,7 @@
 
 public class Bullet : MonoBehaviour
 {
+    public string hurtableTag;
     public Vector3 velocity;
     public float damage;
 
@@ -15,15 +16,12 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag != "Enemy")
+        if (other.tag == hurtableTag)
         {
-            if (other.tag == "Player")
-            {
-                Health h = other.GetComponent<Health>();
-                h.ApplyDamage(damage);
-            }
-
-            Destroy(gameObject);
+            Health h = other.GetComponent<Health>();
+            h.ApplyDamage(damage);
         }
+
+        Destroy(gameObject);
     }
 }
