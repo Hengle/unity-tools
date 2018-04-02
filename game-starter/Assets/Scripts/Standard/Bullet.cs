@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 
+/* You will most likely want to make any bullet prefab have a sensor layer so
+ * they don't collide with each other. Possible create a SensePlayer and
+ * SenseEnemy layer which only collide with Default and what they are
+ * sensing. */
 public class Bullet : MonoBehaviour
 {
-    public string hurtableTag;
-    public Vector3 velocity;
     public float damage;
+    public Vector3 velocity;
 
-    private Rigidbody rb;
+    protected Rigidbody rb;
 
     public virtual void Start()
     {
@@ -14,16 +17,13 @@ public class Bullet : MonoBehaviour
         rb.velocity = velocity;
     }
 
-    void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
-        if (string.IsNullOrEmpty(hurtableTag) || other.tag == hurtableTag)
-        {
-            Health h = other.GetComponent<Health>();
+        Health h = other.GetComponent<Health>();
 
-            if (h != null)
-            {
-                h.ApplyDamage(damage);
-            }
+        if (h != null)
+        {
+            h.ApplyDamage(damage);
         }
 
         Destroy(gameObject);
