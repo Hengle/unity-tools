@@ -16,10 +16,14 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == hurtableTag)
+        if (string.IsNullOrEmpty(hurtableTag) || other.tag == hurtableTag)
         {
             Health h = other.GetComponent<Health>();
-            h.ApplyDamage(damage);
+
+            if (h != null)
+            {
+                h.ApplyDamage(damage);
+            }
         }
 
         Destroy(gameObject);
