@@ -35,11 +35,26 @@ public class StateManager : Manager<StateManager>
         }
         else if (Input.GetMouseButtonDown(0))
         {
-            active = GetStateAtMouse();
+            active = GetStateAtMouse3D();
         }
     }
 
-    public static State GetStateAtMouse()
+    public static State GetStateAtMouse3D()
+    {
+        State target = null;
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, float.PositiveInfinity))
+        {
+            target = hit.transform.GetComponent<State>();
+        }
+
+        return target;
+    }
+
+    public static State GetStateAtMouse2D()
     {
         State target = null;
 
@@ -52,5 +67,11 @@ public class StateManager : Manager<StateManager>
         }
 
         return target;
+    
+
+    public void Clear(State s) {
+        if(active == s) {
+            active = null;
+        }
     }
 }
