@@ -1,8 +1,9 @@
+## General
 Project Settings > Editor
   Visible Meta Files
   Force Text
 
-3D Lighting Instructions:
+## 3D Lighting Instructions
   Use Legacy Diffuse for most 3D materials.
   Have a scene lighting of ambient color and make it #D9D9D9 (which is white #FFFFFF at %85 intensity)
   Have an all white #FFFFFF directional light with effectively %15 intensity on the ground.
@@ -11,10 +12,13 @@ Project Settings > Editor
     intensity = 0.15 / cos(angle)
   Where angle is the the angle between light direction and Down direction
 
-Post Processing Package
+## Post Processing Package
 https://assetstore.unity.com/packages/essentials/post-processing-stack-83912
 
-My older Graphics settings:
+## Quick Outline Package
+https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488
+
+## My older Graphics settings
   Project Settings > Quality
     Anti Aliasing 4x Multi Sampling
     Shadow Projection Close Fit
@@ -23,7 +27,7 @@ My older Graphics settings:
     Ambient Source Color
     Ambient Color B2B2B2
 
-Things to try:
+## Things to try:
 
   Edit > Project Settings > Player > Other Settings > Color Space > Linear
 
