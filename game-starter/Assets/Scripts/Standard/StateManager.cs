@@ -67,7 +67,7 @@ public class StateManager : Manager<StateManager>
         }
 
         return target;
-    
+    }
 
     public void Clear(State s) {
         if(active == s) {
