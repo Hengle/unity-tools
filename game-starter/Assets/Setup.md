@@ -18,6 +18,9 @@ https://assetstore.unity.com/packages/essentials/post-processing-stack-83912
 ## Quick Outline Package
 https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488
 
+## iOS Device Testing
+https://unity3d.com/learn/tutorials/topics/mobile-touch/building-your-unity-game-ios-device-testing
+
 ## My older Graphics settings
   Project Settings > Quality
     Anti Aliasing 4x Multi Sampling
