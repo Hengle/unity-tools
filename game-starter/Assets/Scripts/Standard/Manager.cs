@@ -7,23 +7,22 @@
 /// </summary>
 public abstract class Manager<T> : MonoBehaviour where T : Manager<T>
 {
-    private static T _instance = null;
+    private static T instance;
 
-    public static T instance
+    public static T Instance
     {
-        get { return _instance; }
+        get { return instance; }
     }
 
     public virtual void Awake()
     {
-        if (_instance != null && _instance != this)
+        if (instance != null && instance != this)
         {
-            Destroy(this.gameObject);
-            return;
+            Destroy(gameObject);
         }
         else
         {
-            _instance = FindObjectOfType<T>();
+            instance = FindObjectOfType<T>();
         }
     }
 }

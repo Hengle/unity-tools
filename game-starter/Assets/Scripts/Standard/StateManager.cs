@@ -2,27 +2,27 @@
 
 public class StateManager : Manager<StateManager>
 {
-    private State _active;
+    private State active;
 
-    public State active
+    public State Active
     {
         get
         {
-            return _active;
+            return active;
         }
 
         set
         {
-            if (_active != null)
+            if (active != null)
             {
-                _active.StateEnd();
+                active.StateEnd();
             }
 
-            _active = value;
+            active = value;
 
-            if (_active != null)
+            if (active != null)
             {
-                _active.StateStart();
+                active.StateStart();
             }
         }
     }
@@ -35,42 +35,44 @@ public class StateManager : Manager<StateManager>
         }
         else if (Input.GetMouseButtonDown(0))
         {
-            active = GetStateAtMouse3D();
+            active = GetComponentAtMouse3D<State>();
         }
     }
 
-    public static State GetStateAtMouse3D()
+    public static T GetComponentAtMouse3D<T>()
     {
-        State target = null;
+        T target = default(T);
 
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
 
         if (Physics.Raycast(ray, out hit, float.PositiveInfinity))
         {
-            target = hit.transform.GetComponent<State>();
+            target = hit.transform.GetComponent<T>();
         }
 
         return target;
     }
 
-    public static State GetStateAtMouse2D()
+    public static T GetComponentAtMouse2D<T>()
     {
-        State target = null;
+        T target = default(T);
 
         Vector3 worldPoint = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Collider2D col = Physics2D.OverlapPoint(worldPoint);
 
         if (col != null)
         {
-            target = col.GetComponent<State>();
+            target = col.GetComponent<T>();
         }
 
         return target;
     }
 
-    public void Clear(State s) {
-        if(active == s) {
+    public void Clear(State s)
+    {
+        if (active == s)
+        {
             active = null;
         }
     }
