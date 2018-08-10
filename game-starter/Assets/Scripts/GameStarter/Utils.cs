@@ -4,6 +4,8 @@ namespace GameStarter
 {
     public static class Utils
     {
+        public const float EPSILON = 0.00001f;
+
         public static T GetComponentAtMouse3D<T>()
         {
             T target = default(T);
@@ -32,6 +34,16 @@ namespace GameStarter
             }
 
             return target;
+        }
+
+        public static bool IsZero(float f)
+        {
+            return System.Math.Abs(f) < EPSILON;
+        }
+
+        public static float Sign(float f)
+        {
+            return IsZero(f) ? 0 : Mathf.Sign(f);
         }
     }
 }

@@ -42,9 +42,19 @@ namespace GameStarter
             lastUse = Time.time;
         }
 
+        public void Reset()
+        {
+            lastUse = float.NegativeInfinity;
+        }
+
+        public float RawPercent()
+        {
+            return (Time.time - lastUse) / duration;
+        }
+
         public float Percent()
         {
-            return Mathf.Clamp((Time.time - lastUse) / duration, 0, 1);
+            return Mathf.Clamp(RawPercent(), 0, 1);
         }
     }
 }
