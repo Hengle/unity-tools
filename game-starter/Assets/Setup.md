@@ -12,8 +12,26 @@ Project Settings > Editor
     intensity = 0.15 / cos(angle)
   Where angle is the the angle between light direction and Down direction
 
-## Post Processing Package
-https://assetstore.unity.com/packages/essentials/post-processing-stack-83912
+## Post Processing
+
+`Window` > `Package Manager`
+Click `All` tab and look for `Post-processing` and install it
+
+Add a `Post Processing Layer` to the `Main Camera`
+Select the `PostProcessing` layer in the component and give the camera the `PostProcessing` layer
+Add a `Post Processing Volume` to the `Main Camera`
+Enable `Is Global` in the `Post Processing Volume`
+Right click in the `Project` tab and create a `Post-processing Profile`
+Drop the `Post-processing Profile` in the `Post Processing Volume`
+
+### Bloom (Glowing effect)
+
+Click `Add effect...` in your `Post-processing Profile`
+Check `Intensity` and set it some thing higher than 0 like 3
+
+Click on the `Material` you want to be glowing.
+Check `Emission`
+Click on the color and set the `Intensity` to something that looks right (I've set it to 1 in the past) 
 
 ## Quick Outline Package
 https://assetstore.unity.com/packages/tools/particles-effects/quick-outline-115488
