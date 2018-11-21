@@ -33,10 +33,10 @@ namespace GameStarter
     {
         public float followPercent = 0.1f;
 
-        private float shakeAmount;
-        private float shakeEnd = Mathf.NegativeInfinity;
+        float shakeAmount;
+        float shakeEnd = Mathf.NegativeInfinity;
 
-        private Transform player;
+        Transform player;
 
         void Start()
         {

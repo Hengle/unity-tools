@@ -11,11 +11,11 @@ namespace GameStarter
 
         public Transform model;
 
-        private float horAxis = 0f;
-        private float vertAxis = 0f;
-        private float turnVelY = 0.0F;
+        float horAxis;
+        float vertAxis;
+        float turnVelY;
 
-        private MovementAIRigidbody rb;
+        MovementAIRigidbody rb;
 
         void Start()
         {
@@ -29,9 +29,9 @@ namespace GameStarter
             RotateChar();
         }
 
-        private void RotateChar()
+        void RotateChar()
         {
-            if (horAxis != 0 || vertAxis != 0)
+            if (!Utils.IsZero(horAxis) || !Utils.IsZero(vertAxis))
             {
                 float targetYAngle = Mathf.Atan2(-vertAxis, horAxis) * Mathf.Rad2Deg;
                 Vector3 eulerAngles = model.localEulerAngles;
@@ -46,7 +46,7 @@ namespace GameStarter
             MoveChar();
         }
 
-        private void MoveChar()
+        void MoveChar()
         {
             Vector3 vel = (transform.right * horAxis) + (transform.forward * vertAxis);
             vel = vel.normalized * speed;

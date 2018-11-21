@@ -14,19 +14,19 @@ namespace GameStarter
 
         public bool autoAttachToCamera = true;
 
-        private const float OFFSET = 0.01f;
+        const float OFFSET = 0.01f;
 
-        private Rigidbody rb;
+        Rigidbody rb;
 
-        private SphereCollider col;
+        SphereCollider col;
 
-        private Transform cam;
+        Transform cam;
 
-        private Transform modelHolder;
+        Transform modelHolder;
 
-        private float horAxis = 0f;
+        float horAxis;
 
-        private float vertAxis = 0f;
+        float vertAxis;
 
         void Start()
         {
@@ -65,14 +65,8 @@ namespace GameStarter
         {
             float y = rb.velocity.y;
 
-            if (Cursor.lockState == CursorLockMode.Locked)
-            {
-                rb.velocity = GetMovementDir() * speed;
-            }
-            else
-            {
-                rb.velocity = Vector3.zero;
-            }
+            bool isLocked = Cursor.lockState == CursorLockMode.Locked;
+            rb.velocity = isLocked ? GetMovementDir() * speed : Vector3.zero;
 
             Vector3 vel = rb.velocity;
             vel.y = y;
@@ -94,7 +88,7 @@ namespace GameStarter
             }
         }
 
-        private Vector3 GetMovementDir()
+        Vector3 GetMovementDir()
         {
             return ((Vector3.ProjectOnPlane(cam.forward, Vector3.up).normalized * vertAxis) + (cam.right * horAxis)).normalized;
         }

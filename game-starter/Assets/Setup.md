@@ -2,6 +2,16 @@
 Project Settings > Editor
   Visible Meta Files
   Force Text
+  
+## Tilemap
+More complicated brushes and tiles (like anmiated tiles and prefab brush) are
+found here:
+https://github.com/Unity-Technologies/2d-extras
+
+
+For some tiles and brushes (for example animated tiles and prefab brushes)
+you need to create new assets (right click create in project window) and
+configure the tile or brush before you can use it in the tilemap.
 
 ## 3D Lighting Instructions
   Use Legacy Diffuse for most 3D materials.

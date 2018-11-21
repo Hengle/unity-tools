@@ -9,22 +9,17 @@ namespace GameStarter
     /// </summary>
     public abstract class Manager<T> : MonoBehaviour where T : Manager<T>
     {
-        private static T instance;
-
-        public static T Instance
-        {
-            get { return instance; }
-        }
+        public static T Instance { get; private set; }
 
         public virtual void Awake()
         {
-            if (instance != null && instance != this)
+            if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
             }
             else
             {
-                instance = FindObjectOfType<T>();
+                Instance = FindObjectOfType<T>();
             }
         }
     }

@@ -4,7 +4,7 @@ namespace GameStarter
 {
     public class StateManager : Manager<StateManager>
     {
-        private State active;
+        State active;
 
         public State Active
         {

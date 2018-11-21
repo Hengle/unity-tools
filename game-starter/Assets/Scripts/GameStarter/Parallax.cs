@@ -6,12 +6,12 @@ namespace GameStarter
     {
         /* Parallax of 0 means no parallax. Parallax of 0.5 means 50% parallax. */
         public float parallaxX = 0.5f;
-        public float parralaxY = 0f;
+        public float parralaxY;
 
-        private Vector3 startPos;
-        private Vector3 startPosCam;
+        Vector3 startPos;
+        Vector3 startPosCam;
 
-        private Transform target;
+        Transform target;
 
         void Start()
         {

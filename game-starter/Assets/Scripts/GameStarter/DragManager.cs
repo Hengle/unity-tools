@@ -6,13 +6,13 @@ namespace GameStarter
     {
         public int dragThreshold = 5;
 
-        public bool isDragging = false;
+        public bool isDragging;
 
         public Vector2 dragDelta;
 
-        private Vector3 lastMousePos;
+        Vector3 lastMousePos;
 
-        private float dragDist = 0;
+        float dragDist;
 
         public void StartLevel()
         {
@@ -56,7 +56,7 @@ namespace GameStarter
         /// Gets the drag threshold in pixels based off the Screen dpi and default
         /// drag threshold for a 160 DPI screen.
         /// </summary>
-        private int DpiBasedDragThreshold()
+        int DpiBasedDragThreshold()
         {
             return Mathf.Max(dragThreshold, (int)(dragThreshold * Screen.dpi / 160f));
         }

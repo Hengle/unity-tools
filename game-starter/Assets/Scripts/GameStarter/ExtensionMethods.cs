@@ -22,5 +22,24 @@ namespace GameStarter
                 list[n] = value;
             }
         }
+
+        /// <summary>
+        /// Checks if the layer is in the mask
+        /// </summary>
+        public static bool Contains(this LayerMask mask, int layer)
+        {
+            return mask == (mask | (1 << layer));
+        }
+
+        /// <summary>
+        /// Creates a BoundsInt that contains both BoundsInts.
+        /// </summary>
+        public static BoundsInt Union(this BoundsInt a, BoundsInt b)
+        {
+            Vector3Int min = Vector3Int.Min(a.min, b.min);
+            Vector3Int max = Vector3Int.Max(a.max, b.max);
+
+            return new BoundsInt(min, max - min);
+        }
     }
 }

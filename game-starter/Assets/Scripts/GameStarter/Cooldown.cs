@@ -31,10 +31,8 @@ namespace GameStarter
 
                 return true;
             }
-            else
-            {
-                return false;
-            }
+
+            return false;
         }
 
         public void Use()

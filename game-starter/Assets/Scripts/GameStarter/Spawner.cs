@@ -9,7 +9,7 @@ namespace GameStarter
         public float spawnRate = 2f;
         public float spawnChance = 0.5f;
 
-        private float nextSpawn;
+        float nextSpawn;
 
         public virtual void Start()
         {

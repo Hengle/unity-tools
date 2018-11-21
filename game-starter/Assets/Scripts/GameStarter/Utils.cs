@@ -45,5 +45,26 @@ namespace GameStarter
         {
             return IsZero(f) ? 0 : Mathf.Sign(f);
         }
+
+        /// <summary>
+        /// Converts the vector to an angle in radians.
+        /// </summary>
+        public static float Vector2ToAngle(Vector2 v)
+        {
+            return Mathf.Atan2(v.y, v.x);
+        }
+
+        /// <summary>
+        /// Converts the angle in radians to a vector.
+        /// </summary>
+        public static Vector2 AngleToVector2(float angle)
+        {
+            return new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
+        }
+
+        public static float RandomBinomial()
+        {
+            return Random.value - Random.value;
+        }
     }
 }

@@ -4,7 +4,6 @@ namespace GameStarter
 {
     public class Health : MonoBehaviour
     {
-
         public float currentHealth = 100;
 
         public float maxHealth = 100;
@@ -12,9 +11,9 @@ namespace GameStarter
         /// <summary>
         /// How much time before you can take damage again after just taking damage.
         /// </summary>
-        public float invincibleDuration = 0f;
+        public float invincibleDuration;
 
-        public float percentHealth
+        public float PercentHealth
         {
             get
             {
@@ -25,7 +24,7 @@ namespace GameStarter
         public AudioClip hurtClip;
         public float hurtVolume = 1f;
 
-        private Cooldown cooldown;
+        Cooldown cooldown;
 
         public virtual void Start()
         {

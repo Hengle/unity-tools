@@ -9,8 +9,8 @@ namespace GameStarter
     {
         public float duration;
         public bool loop;
-        public float time = 0;
-        public bool isPaused = false;
+        public float time;
+        public bool isPaused;
 
         public Cast(float duration)
         {
