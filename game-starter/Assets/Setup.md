@@ -85,3 +85,17 @@ https://unity3d.com/learn/tutorials/topics/mobile-touch/building-your-unity-game
       Intensity 0.1
     Enable Antialiasing 
       Method > Temporal Anti-aliasing
+      
+## Knockback 
+For characters moving with AddForce() using a simple Impulse for knockback works but is imperfect. 
+* The impulse needs to be a much higher number than the sustained force for movement. For example:
+  * Player
+    * accel = 50f
+    * stoppingDrag = 25f
+    * maxSpeed = 6f
+  * knockbackAccel = 600f
+* The impulse moves the character more when player is moving then when the player is stationary (since the player turns off drag during movement)
+
+For higher quality knockbacks try the following:
+    Apply the knockback as a sustained force (instead of Impulse) which is applied every fixed update for a set duration.
+    During the time it is applied the character should have its stoppingDrag off or it should be added to the player's velocity if I'm manually setting velocity for character movement.

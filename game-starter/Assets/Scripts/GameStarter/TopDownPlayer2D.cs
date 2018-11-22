@@ -8,12 +8,9 @@ namespace GameStarter
         public float stoppingDrag = 25f;
         public float maxSpeed = 6f;
 
-        public float knockbackAccel = 600f;
-
         Rigidbody2D rb;
         float x;
         float y;
-        bool knockback;
 
         void Start()
         {
@@ -24,8 +21,6 @@ namespace GameStarter
         {
             x = Input.GetAxisRaw("Horizontal");
             y = Input.GetAxisRaw("Vertical");
-
-            knockback |= Input.GetButtonDown("Jump");
         }
 
         void FixedUpdate()
@@ -40,11 +35,6 @@ namespace GameStarter
                 Vector2 force = new Vector2(x, y);
                 force = force.normalized * accel;
                 rb.AddForce(force);
-            }
-
-            if(knockback) {
-                rb.AddForce(Random.insideUnitCircle.normalized * knockbackAccel);
-                knockback = false;
             }
 
             if (rb.velocity.magnitude > maxSpeed)
